@@ -1,0 +1,270 @@
+
+
+body{
+font-family: "Apercu Regular", "a-otf-gothic-bbb-pr6n", Meryo, "メイリオ", Osaka, "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+color: #000000;
+background: #ffffff;
+font-size: 14px;
+}
+
+a{
+  text-decoration: none;
+  color: #000000;
+}
+
+.main{
+  width: 100%;
+}
+
+.site-width{
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lp-contents{
+  display: flex;
+  align-items: center;
+  height: 500px;
+  /* background: #fafafafa; */
+}
+
+.left-content{
+text-align: center;
+margin-right: 64px;
+}
+
+.left-text{
+line-height: 1.8;
+font-size: 1.5rem;
+}
+
+.right-content{
+  width: 50%;
+}
+
+.right-img{
+width: 100%;
+}
+
+
+
+
+/* レイアウト */
+
+/* ヘッダー */
+.header{
+  height: 100px;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px #dddddd;
+  padding-left: 80px;
+  padding-right: 80px;
+  margin-bottom: 200px;
+}
+
+.nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-list{
+  margin-right: 40px;
+}
+
+.nav-list:last-child{
+  margin-right: 0;
+}
+
+/* フッター */
+.footer{
+  text-align: center;
+  background: #fafafa;
+  width: 100%;
+  height: 80px;
+}
+
+
+/* コンポーネント */
+
+/* ボタン */
+.btn{
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.btn-black{
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #fff;
+}
+
+.btn-white{
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+.nav-btn{
+  width: 120px;
+  text-align: center;
+}
+
+.form-btn{
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+/* フォーム */
+
+.form{
+  width: 60%;
+  margin: 0 auto;
+  padding: 60px;
+}
+
+.form-field{
+  display: block;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 40px;
+}
+
+.form-title{
+  font-size: 1.8rem;
+  margin-bottom: 50px;
+}
+
+.remember-pass{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* 検索&登録メニュー */
+.search-menu{
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
+  align-items: center;
+}
+.select-box{
+  color: #000000;
+  padding: 5px;
+  border: 1px solid #000000;
+  width: 300px;
+}
+.sort{
+  color: #000000;
+  padding: 5px;
+  border-radius: 5px;
+  width: 300px;
+}
+
+/* 備品リスト */
+.card{
+  width: 100%;
+  margin: 0 auto;
+
+}
+
+.card-list{
+  display: flex;
+  align-items: center;
+  width: 95%;
+  background: #ffffff;
+  border: 1px solid #dadada;
+  border-radius: 2px;
+  padding: 30px 20px;
+  margin: 0 auto;
+}
+
+.card-list--left{
+  width: 50%;
+  text-align: center;
+  margin-right: 5%;
+}
+.card-img{
+width: 80%;
+}
+
+.card-list--right{
+  width: 50%;
+}
+
+.item-list{
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+.card-item{
+}
+
+
+.equipment-tag{
+  display: block;
+  background: #dddddd;
+  padding: 2px 15px;
+  box-sizing: border-box;
+  color: #000000;
+  font-size: 0.8rem;
+}
+
+/* ユーティリティー */
+.bg-lightgray{
+  background: #fafafa;
+}
+
+.center{
+  text-align: center;
+}
+
+.text-danger{
+  color: #FF3333;
+}
+
+.clear-mb{
+  margin-bottom: 0;
+}
+
+.mb-40{
+  margin-bottom: 40px;
+}
+
+.mb-20{
+  margin-bottom: 20px;
+}
+.block{
+  display: block;
+}
+
+.w-100{
+  width: 100%;
+}
+
+.img-container{
+  width: 40%;
+  text-align: center;
+}
+
+.edit-img{
+  width: 100%;
+}
+
+.equipment-form--container{
+  display: flex;
+  align-items: center;
+  width: 95%;
+  margin: 0 auto;
+}
