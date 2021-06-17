@@ -11,13 +11,18 @@
 |
 */
 
+use App\Http\Controllers\SignUpController;
 use App\Http\Controllers\TopPageController;
+use App\Http\Controllers\EquipmentRegistrationController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('equipment.top');
-// });
+Route::get('/', 'TopPageController@show')->name('top');
+Route::get('home/equipment_registration', 'EquipmentRegistrationController@show')->name('equipment_registration');
+Route::post('home/equipment_registration', 'EquipmentRegistrationController@create')->name('equipment_create');
 
-Route::get('/', 'TopPageController@show');
-Route::get('/signup', 'SignUpController@show');
-Route::get('/login', 'LoginController@show');
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/register', function () {
+//     return view('auth.register');
+// });
