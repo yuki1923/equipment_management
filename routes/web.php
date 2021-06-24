@@ -14,15 +14,28 @@
 use App\Http\Controllers\SignUpController;
 use App\Http\Controllers\TopPageController;
 use App\Http\Controllers\EquipmentRegistrationController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
 
+// ログイン前のトップページ
 Route::get('/', 'TopPageController@show')->name('top');
-Route::get('home/equipment_registration', 'EquipmentRegistrationController@show')->name('equipment_registration');
-Route::post('home/equipment_registration', 'EquipmentRegistrationController@create')->name('equipment_create');
 
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('index', 'HomeController@index')->name('index');
+Route::get('logout', 'LoginController@getLogout')->name('logout');
 // Route::get('/register', function () {
 //     return view('auth.register');
 // });
+
+// Route::get('logout', 'LoginController@logout')->('logout');
+
+
+
+Route::group(['prefix' => 'equipment'], function () {
+
+    // Route::get('index', 'HomeController@index')->name('equipment.index');
+    Route::get('create', 'EquipmentController@create')->name('equipment.create');
+    Route::post('store', 'EquipmentController@store')->name('equipment.store');
+});

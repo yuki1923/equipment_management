@@ -11,16 +11,23 @@
       <div class="img-container">
         <img class="edit-img" src="images/DSCF3603.jpg" alt="">
       </div>
-      <form class="form" method="post" action="{{route('equipment_registration')}}">
+      <form class="form" method="post" action="{{route('equipment.store')}}">
+        @if(count($errors) > 0)
+        <ul>
+          @foreach($errors->all() as $error)
+          <li>{{$error}}</li>
+          @endforeach
+        </ul>
+        @endif
         @csrf
         <label for="name">備品名</label>
-        <input id="name" class="form-field" type="text" name="equipment_name">
+        <input id="name" class="form-field" type="text" name="equipment_name" value="{{old('equipment_name')}}">
         <label for="storage">保管場所</label>
-        <input id="storage" class="form-field" type="text" name="storage_location">
+        <input id="storage" class="form-field" type="text" name="storage_location" value="{{old('storage_location')}}">
         <label for="quantity">ストック個数</label>
-        <input id="quantity" class="form-field" type="text" name="quantity">
+        <input id="quantity" class="form-field" type="text" name="quantity" value="{{old('quantity')}}">
         <label for="">リマインド日</label>
-        <input type="date" name="notification_date">
+        <input type="date" name="notification_date" value="{{old('notification_date')}}">
         <input class="form-btn btn-black" type="submit" value="登録する">
       </form>
     </div>

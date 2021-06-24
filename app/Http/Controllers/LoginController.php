@@ -3,11 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function show()
+    public function getLogout()
     {
-        return view('equipment.login');
+        Auth::logout();
+        return redirect('/');
+    }
+
+    public function login()
+    {
     }
 }
