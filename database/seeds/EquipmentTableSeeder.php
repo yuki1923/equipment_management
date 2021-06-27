@@ -4,7 +4,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class EquipmentsTableSeeder extends Seeder
+class EquipmentTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,7 +13,7 @@ class EquipmentsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('equipments')->insert([
+        DB::table('equipment')->insert([
             'user_id' => 3,
             'equipment_name' => 'トイレットペーパー',
             'storage_location' => 'トイレ上収納',
