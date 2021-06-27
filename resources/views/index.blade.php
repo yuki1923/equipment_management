@@ -22,6 +22,9 @@
             <a class="btn btn-black" href="{{route('equipment.create')}}">備品を登録</a>
         </div>
         <section class="card">
+            @if(!$equipment)
+            <h3>まだ備品が登録されていません</h3>
+            @else
             @foreach($equipment as $val)
             <div class="card-list mb-20">
                 <!-- <h3 class="center">スポンジ</h3> -->
@@ -45,13 +48,14 @@
                         <label class="equipment-tag">リマインド日</label>
                         <p class="item-list">{{$val->notification_date}}</p>
                     </div>
-                    <form action="">
-                        <input class="btn btn-black w-100 mb-20" type="submit" value="編集する">
-                        <input class="btn btn-white w-100" type="submit" value="削除する">
-                    </form>
+                    <!-- <form method="post" action=""> -->
+                    <a class="btn btn-black w-100 mb-20" href="{{route('equipment.edit',['id'=>$val->id])}}">編集する</a>
+                    <!-- <input class="btn btn-white w-100" type="submit" value="削除する"> -->
+                    <!-- </form> -->
                 </div>
             </div>
             @endforeach
+            @endif
         </section>
 
 

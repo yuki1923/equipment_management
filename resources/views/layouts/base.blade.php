@@ -17,10 +17,11 @@
     <h1><a href="{{url('')}}">備品リスト</a></h1>
     <nav>
       <ul class="nav">
-        <li class="nav-list"><a class="btn btn-black nav-btn" href="{{url('/register')}}">新規登録</a></li>
         @if(Auth::check() === true)
+        <li class="nav-list"><a class="btn btn-black nav-btn" href="{{url('/index')}}">TOP</a></li>
         <li class="nav-list"><a class="btn btn-white nav-btn" href="{{url('/logout')}}">ログアウト</a></li>
         @else
+        <li class="nav-list"><a class="btn btn-black nav-btn" href="{{url('/register')}}">新規登録</a></li>
         <li class="nav-list"><a class="btn btn-white nav-btn" href="{{url('/login')}}">ログイン</a></li>
         @endif
       </ul>

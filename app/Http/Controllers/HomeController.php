@@ -27,6 +27,10 @@ class HomeController extends Controller
     {
         $user_id = Auth::id();
         $equipment = Equipment::where('user_id', $user_id)->get();
+        //equipmentがからの場合のviewでの表示のため
+        if ($equipment->isEmpty()) {
+            $equipment = 0;
+        }
         return view('/index', ['equipment' => $equipment]);
     }
 }

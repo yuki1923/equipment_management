@@ -68,7 +68,9 @@ class EquipmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        //findで指定したIDの備品情報を格納
+        $equipment = Equipment::find($id);
+        return view('equipment/edit', compact('equipment'));
     }
 
     /**
@@ -80,7 +82,20 @@ class EquipmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'equipment_name' => 'required|string',
+            'storage_location' => 'required|string',
+            'quantity' => 'required|integer',
+            'notification_date' => 'required',
+        ]);
+
+        $equipment = Equipment::find($id);
+        $equipment->equipment_name = $request->input('equipment_name');
+        $equipment->storage_location = $request->input('storage_location');
+        $equipment->quantity = $request->input('quantity');
+        $equipment->notification_date = $request->input('notification_date');
+        $equipment->save();
+        return redirect('/index')->with('flash_message', 'テスト');
     }
 
     /**
@@ -91,6 +106,7 @@ class EquipmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Equipment::destroy($id);
+        return redirect('/index');
     }
 }

@@ -38,4 +38,7 @@ Route::group(['prefix' => 'equipment'], function () {
     // Route::get('index', 'HomeController@index')->name('equipment.index');
     Route::get('create', 'EquipmentController@create')->name('equipment.create');
     Route::post('store', 'EquipmentController@store')->name('equipment.store');
+    Route::get('edit/{id}', 'EquipmentController@edit')->name('equipment.edit');
+    Route::post('update/{id}', 'EquipmentController@update')->name('equipment.update');
+    Route::post('destroy/{id}', 'EquipmentController@destroy')->name('equipment.destroy');
 });
