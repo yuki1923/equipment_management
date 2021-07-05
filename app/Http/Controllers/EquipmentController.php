@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Equipment;
 use App\User;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Database\Eloquent\Collection;
 
 class EquipmentController extends Controller
 {
@@ -19,6 +21,35 @@ class EquipmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function index(Request $request)
+    {
+        $user_id = Auth::id();
+        $equipment = Equipment::where('user_id', $user_id)->get();
+        //equipmentがからの場合のviewでの表示のため
+        if ($equipment->isEmpty()) {
+            $equipment = 0;
+        }
+        if (!empty($request->sort)) {
+            $param = $request->sort;
+            switch ($param) {
+                case 1:
+                    $equipment = Equipment::where('user_id', $user_id)->orderBy('notification_date', 'asc')->get();
+                    break;
+                case 2:
+                    $equipment = Equipment::where('user_id', $user_id)->orderBy('notification_date', 'desc')->get();
+                    break;
+                case 3:
+                    $equipment = Equipment::where('user_id', $user_id)->orderBy('quantity', 'asc')->get();
+                    break;
+                case 4:
+                    $equipment = Equipment::where('user_id', $user_id)->orderBy('quantity', 'desc')->get();
+                    break;
+            }
+        }
+        return view('/index', ['equipment' => $equipment]);
+    }
+
     public function create(Request $request)
     {
         return view('equipment/create');
@@ -35,8 +66,8 @@ class EquipmentController extends Controller
         $request->validate([
             'equipment_name' => 'required|string',
             'storage_location' => 'required|string',
-            'quantity' => 'required|integer',
-            'notification_date' => 'required',
+            'quantity' => 'required|integer|min:1',
+            'notification_date' => 'required|date|after:today',
         ]);
 
         $equipment = new Equipment;
@@ -46,7 +77,7 @@ class EquipmentController extends Controller
         $equipment->quantity = $request->input('quantity');
         $equipment->notification_date = $request->input('notification_date');
         $equipment->save();
-        return redirect('/index')->with('flash_message', 'テスト');
+        return redirect('equipment/index')->with('flash_message', '登録が完了しました。');
     }
 
     /**
@@ -85,8 +116,8 @@ class EquipmentController extends Controller
         $request->validate([
             'equipment_name' => 'required|string',
             'storage_location' => 'required|string',
-            'quantity' => 'required|integer',
-            'notification_date' => 'required',
+            'quantity' => 'required|integer|min:1',
+            'notification_date' => 'required|date|after:today',
         ]);
 
         $equipment = Equipment::find($id);
@@ -95,7 +126,7 @@ class EquipmentController extends Controller
         $equipment->quantity = $request->input('quantity');
         $equipment->notification_date = $request->input('notification_date');
         $equipment->save();
-        return redirect('/index')->with('flash_message', 'テスト');
+        return redirect('equipment/index')->with('flash_message', '編集が完了しました。');
     }
 
     /**
@@ -107,6 +138,6 @@ class EquipmentController extends Controller
     public function destroy($id)
     {
         Equipment::destroy($id);
-        return redirect('/index');
+        return redirect('equipment/index')->with('flash_message', '削除が完了しました。');
     }
 }

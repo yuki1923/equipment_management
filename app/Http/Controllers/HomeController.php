@@ -23,7 +23,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
         $user_id = Auth::id();
         $equipment = Equipment::where('user_id', $user_id)->get();
@@ -32,5 +32,9 @@ class HomeController extends Controller
             $equipment = 0;
         }
         return view('/index', ['equipment' => $equipment]);
+    }
+
+    public function sort(Request $request)
+    {
     }
 }

@@ -10,13 +10,15 @@
     <!-- コンテンツ幅  w1000px-->
     <div class="container site-width bg-lightgray">
         <div class="search-menu">
-            <form class="search-form" action="" method="get">
+            <form class="search-form" method="get" action="">
                 <label class="sort" for="sort">表示順</label>
-                <select id="sort" class="select-box" name="">
-                    <option value="サンプル1">リマインド日が近い順</option>
-                    <option value="サンプル2">リマインド日が遠い順</option>
-                    <option value="サンプル3">数量が少ない順</option>
-                    <option value="サンプル3">数量が多い順</option>
+                <select id="sort" class="select-box" name="sort">
+                    <option value="0">選択してください</option>
+                    <option value="1">リマインド日が近い順</option>
+                    <option value="2">リマインド日が遠い順</option>
+                    <option value="3">数量が少ない順</option>
+                    <option value="4">数量が多い順</option>
+                    <input type="submit" class="btn btn-white" value="並び替え">
                 </select>
             </form>
             <a class="btn btn-black" href="{{route('equipment.create')}}">備品を登録</a>

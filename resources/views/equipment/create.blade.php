@@ -25,7 +25,7 @@
         <label for="storage">保管場所</label>
         <input id="storage" class="form-field" type="text" name="storage_location" value="{{old('storage_location')}}">
         <label for="quantity">ストック個数</label>
-        <input id="quantity" class="form-field" type="text" name="quantity" value="{{old('quantity')}}">
+        <input id="quantity" class="form-field" type="number" name="quantity" value="{{old('quantity')}}">
         <label for="">リマインド日</label>
         <input type="date" name="notification_date" value="{{old('notification_date')}}">
         <input class="form-btn btn-black" type="submit" value="登録する">
