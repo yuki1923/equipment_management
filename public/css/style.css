@@ -122,7 +122,7 @@ width: 100%;
   padding: 12px 16px;
   border-radius: 30px;
   font-size: 1.1rem;
-  border: 1px solid #fff;
+  border: 1px solid #000;
   cursor: pointer;
 }
 
@@ -264,7 +264,58 @@ width: 80%;
 
 .equipment-form--container{
   display: flex;
+  display: relative;
   align-items: center;
   width: 95%;
   margin: 0 auto;
+}
+
+.wrap{
+  display: none;
+  width: 30%;
+  height: 20%;
+  padding: 40px 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  box-sizing: border-box;
+  z-index: 1;
+  background: #f5f5f5;;
+}
+
+.cover{
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0, 0.8);
+}
+
+.modal-form{
+width: 80%;
+margin: 0 auto 20px;
+text-align: center;
+box-sizing: border-box;
+padding: 5px 20px;
+background: #f5f5f5;
+}
+
+.confirm-msg{
+  margin-bottom: 40px;
+}
+
+.not-btn{
+  margin-right: 30px;
+}
+
+.flash{
+  width: 100%;
+  height: 40px;
+  background-color: rgba(0,255,255,0.3);
+  z-index: 2;
+  text-align: center;
+  line-height: 40px;
 }
